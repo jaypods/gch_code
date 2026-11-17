@@ -44,7 +44,7 @@ The credential target is `C801/Binance/Futures/HMAC/v1` for the current Windows 
 Use `start_dashboard.cmd`, or:
 
 ```powershell
-py -3.12 -X utf8 -B launch_simple.py --runtime-root .untime --port 58446
+py -3.12 -X utf8 -B launch_simple.py --runtime-root ./runtime --port 58446
 ```
 
 Open `http://127.0.0.1:58446/`. The supplied launcher uses a repository-local runtime directory and an alternate port. It does not point to the original installation's database or desktop shortcuts.
