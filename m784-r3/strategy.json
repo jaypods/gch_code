@@ -1,0 +1,95 @@
+{
+  "strategy_id": "M784_R3_NG_20261117",
+  "name": "M784 R3 | BTC and ETH perpetual futures",
+  "version": "1.0.0",
+  "saved_utc": "2026-11-17T17:17:06.614273+00:00",
+  "status": "research_candidate_only",
+  "source_variant": "risk30_original_entry",
+  "assets": [
+    "BTCUSDT",
+    "ETHUSDT"
+  ],
+  "account_initial_usdt": 1000,
+  "signal": {
+    "ordinary_bar_minutes": 15,
+    "prior_breakout_bars": 16,
+    "prior_quote_mean_bars": 20,
+    "min_quote_ratio": 1.5,
+    "return_volatility_bars": 96,
+    "max_logreturn_std": 0.0045,
+    "min_complete_bars": 97,
+    "pair_same_direction": true,
+    "whole_bar_vwap_beyond_boundary": true,
+    "shadow_admission_gate": false,
+    "weekly_mean_weeks": 30,
+    "completed_week_closes": 29,
+    "weekly_reference_minutes": 5,
+    "weekly_both_crosses_long": true,
+    "weekly_split": [
+      "perpetual_reference",
+      "spot_reference"
+    ]
+  },
+  "clocks": {
+    "strategy_minutes": 5,
+    "execution_minutes": 1,
+    "decision_after_signal_end_minutes": 5,
+    "earliest_entry_after_signal_end_minutes": 10,
+    "entry_attempt_minutes": 5,
+    "order_expiry_after_signal_end_hours": 4,
+    "receipt_after_event_minute_end_minutes": 5,
+    "receipt_delivery_grid_minutes": 5,
+    "cooldown_after_actual_exit_hours": 6,
+    "maximum_hold_from_planned_entry_hours": 144,
+    "final_window_liquidation_minutes_before_end": 5
+  },
+  "sizing": {
+    "stop_risk_fraction": 0.03,
+    "margin_leverage": 4,
+    "retained_profit_fraction": 0.5,
+    "base": "max(known_marked_equity - pending_entry_friction - 0.5*max(known_received_cash_peak-1000,0),0)",
+    "unit_risk": "side*(worst_entry - costed_stop) + fee*(worst_entry + costed_stop)",
+    "worst_entry": "reference*(1+side*0.015)*(1+side*slippage)",
+    "costed_stop": "reference*(1-side*0.03)*(1-side*slippage)",
+    "quantity": "min(base*0.03/unit_risk,0.01*last_known_5m_quote_volume/reference)",
+    "weekly_shared_budget": true,
+    "weekly_leg_share": 0.5,
+    "quantity_fixed_on_submission": true,
+    "ordinary_min_notional": 20,
+    "weekly_group_min_notional": 40,
+    "original_entry_rule_retained": true,
+    "reference_price_fill_ceiling": false,
+    "legacy_metadata_not_used_for_sizing": [
+      "risk_index",
+      "risk_updates",
+      "group_margin_budget"
+    ]
+  },
+  "protection": {
+    "initial_stop_reference_fraction": 0.03,
+    "initial_target_reference_fraction": 0.08,
+    "profit_trigger_R": 2,
+    "profit_stop_R": 1,
+    "one_tightening_per_trade": true,
+    "profit_observation": "At clock T use completed5m[T-10m,T-5m); its start must be >= actual entry receipt-delivery clock.",
+    "profit_effect_after_request_minutes": 5,
+    "same_minute_conflict": "stop_first",
+    "gap_stop": "adverse_open",
+    "gap_target": "cap_at_target"
+  },
+  "costs": {
+    "fee_per_side": 0.0005,
+    "slippage_per_side": 0.0004,
+    "double_cost_multiplier": 2,
+    "funding": "actual per-symbol rates; original delayed reference-mark and conservative ambiguous-minute attribution"
+  },
+  "limitations": [
+    "3% is pretrade modeled stop risk, excluding gap overrun and future funding; not a guaranteed account loss cap.",
+    "Both windows were observed. This candidate was registered after2023 reference-cap failure; retrospective diagnosis, not independent OOS.",
+    "Historical minute execution approximation, no certified order-book queue, historical lot filters or full exchange liquidation model.",
+    "Frozen execution/audit kernels require qualified raw bars, point-in-time signal features, refresh/weekly sources and independent audit inputs; this is not a turnkey live trading program.",
+    "Main CAGR600% and2023 CAGR>100% targets remain unmet."
+  ],
+  "live_program_changed": false,
+  "api_credentials_included": false
+}

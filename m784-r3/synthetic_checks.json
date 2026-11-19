@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "side": -1,
+      "cost": 1,
+      "passed": true,
+      "future_order_invariance": true
+    },
+    {
+      "side": -1,
+      "cost": 2,
+      "passed": true,
+      "future_order_invariance": true
+    },
+    {
+      "side": 1,
+      "cost": 1,
+      "passed": true,
+      "future_order_invariance": true
+    },
+    {
+      "side": 1,
+      "cost": 2,
+      "passed": true,
+      "future_order_invariance": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "frozen_utc": "2026-11-17T16:34:50.517071+00:00",
+  "variant": "risk30_original_entry",
+  "costs": [
+    1,
+    2
+  ],
+  "initial_usdt": 1000,
+  "main_window": [
+    1704067200000,
+    1790812800000
+  ],
+  "main_accounts": 2,
+  "validation_accounts_at_most": 2,
+  "rationale": "Complete the single missing3% original-entry cell of the already chosen1.5/3 risk x original/reference-cap comparison. Same accepted ungated sources and original adverse-entry-bound risk formula as the preceding risk15_no_gate; only fraction doubles. No extra thresholds/budgets/date selection. Entry-cap study closed with2023failure, its selection unchanged.",
+  "selection": "First run both development costs. Continue the same fixed version to2023 only if ordinary CAGR exceeds39.153241727089934, minuteDD<=40 and double CAGR>0. Report2023 whether profitable or not. Do not change risk/date/entry after outcomes.",
+  "exposure": "Designed after observing2023 reference-cap failure and earlier2023results. Entire diagnostic is retrospective; no independentOOS, no causal deployment claim, no live modifications.",
+  "generated_sha256": {
+    "risk30_original_entry_audit.py": "80efe62f3ea76df603037bd1fd88e318d77623da54d1c4af58f223dea2f473c9",
+    "risk30_original_entry_engine.py": "30f9ce53a065a46a45151e7b672726300c3280e01d61414b97cf9cd1169ff9fc"
+  },
+  "input_sha256": {
+    "refinement/control/run_control.py": "2dd00db1d6a90448014694b4b91e9a11f2cf45a892f99df712c9b742e3cfdd1a",
+    "refinement/refine.py": "0f01d7fc9807c33c03460656e4cd6a98dee91bc2fa92d36313121022e140be8a",
+    "refinement/results.json": "1671de7adfa4f45a2bb06d1034094371a3350a6f80e1d0f31653923e3ad7c738",
+    "refinement/validation_diagnosis.json": "49bd6865f96ed24f78b8a742b80dfe711ca50e2015bd531c63d78d1d43673cfa",
+    "results.json": "7be6ae6004b80cc9af590ae258da180efa79dcb4e3922a6fa5ea8b33b7f0f8b1"
+  }
+}

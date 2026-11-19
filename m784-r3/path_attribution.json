@@ -1,0 +1,22 @@
+{
+  "development_cost1": {
+    "same_execution_path": true,
+    "old_trades": 561,
+    "new_trades": 561
+  },
+  "development_cost2": {
+    "same_execution_path": true,
+    "old_trades": 558,
+    "new_trades": 558
+  },
+  "cross_period_cost1": {
+    "same_execution_path": true,
+    "old_trades": 181,
+    "new_trades": 181
+  },
+  "cross_period_cost2": {
+    "same_execution_path": true,
+    "old_trades": 182,
+    "new_trades": 182
+  }
+}
